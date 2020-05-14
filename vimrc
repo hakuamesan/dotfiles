@@ -19,7 +19,7 @@ set hidden
 set ignorecase smartcase
 set wildmenu
 set wildmode=full
-set tabstop=2
+set tabstop=4
 set shiftwidth=2
 set expandtab smarttab
 set scrolloff=5
@@ -82,6 +82,7 @@ endif
 noremap <F2> :w<CR>
 noremap <F3> :NERDTreeToggle<CR>
 noremap <F4> :TlistToggle<CR>
+noremap <F12> :%!js-beautify<CR>
 
 colo blue
 
@@ -158,6 +159,7 @@ Plug 'othree/html5.vim'
 Plug 'jwalton512/vim-blade'
 Plug 'sheerun/vim-polyglot'
 Plug 'phpactor/phpactor'
+Plug 'pangloss/vim-javascript'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -208,25 +210,25 @@ if v:version >= 703
 endif
 
 " Lang
-if v:version >= 703
-  Plug 'kovisoft/paredit', { 'for': 'clojure' }
-  Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-  Plug 'guns/vim-clojure-static'
-  Plug 'guns/vim-clojure-highlight'
-  Plug 'guns/vim-slamhound'
-  Plug 'venantius/vim-cljfmt'
-endif
-Plug 'tpope/vim-bundler', { 'for': 'ruby' }
+"if v:version >= 703
+"  Plug 'kovisoft/paredit', { 'for': 'clojure' }
+"  Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+"  Plug 'guns/vim-clojure-static'
+"  Plug 'guns/vim-clojure-highlight'
+"  Plug 'guns/vim-slamhound'
+"  Plug 'venantius/vim-cljfmt'
+"endif
+"Plug 'tpope/vim-bundler', { 'for': 'ruby' }
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'groenewege/vim-less'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'kchmck/vim-coffee-script'
+"Plug 'kchmck/vim-coffee-script'
 Plug 'slim-template/vim-slim'
 Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'rust-lang/rust.vim'
-Plug 'tpope/vim-rails', { 'for': [] }
-Plug 'derekwyatt/vim-scala'
+"Plug 'rust-lang/rust.vim'
+"Plug 'tpope/vim-rails', { 'for': [] }
+"Plug 'derekwyatt/vim-scala'
 Plug 'honza/dockerfile.vim'
 Plug 'solarnz/thrift.vim'
 Plug 'dag/vim-fish'
@@ -235,9 +237,10 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 " Plug 'lyuts/vim-rtags', { 'for': ['c', 'cpp'] }
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': 'markdown', 'on': 'MarkdownPreview' }
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() }}
+Plug 'neoclide/coc.nvim', {'release': 'branch'}
 
-
+"Nginx syntax file
+Plug 'chr4/nginx.vim'
 
 " Lint
 Plug 'w0rp/ale'
