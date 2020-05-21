@@ -65,7 +65,9 @@ set statusline=%l:%c::%{FugitiveStatusline()}%m\ \[%{&ff}:%{&fenc}:%Y]\ %{getcwd
 
 set modelines=2
 set synmaxcol=1000
-
+if has("gui_running")
+  set lines=50 columns=150
+endif
 " For MacVim
 set noimd
 set imi=1
@@ -266,5 +268,6 @@ let g:lightline =  {
 
 
 "let g:vue_disable_pre_processors = 1
+let g:vue_pre_processors = 'detect_on_enter'
 syn sync fromstart
 
