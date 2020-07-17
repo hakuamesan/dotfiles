@@ -3,6 +3,7 @@
 
 " basic settings
 set nu
+set nocompatible
 set autoindent
 set smartindent
 set lazyredraw
@@ -87,7 +88,7 @@ endif
 "My custom Fn key maps
 noremap <F2> :w<CR>
 noremap <F3> :NERDTreeToggle<CR>
-noremap <F4> :TlistToggle<CR>
+noremap <F4> :TagbarToggle<CR>
 noremap <F12> :%!js-beautify<CR>
 
 colo blue
@@ -170,14 +171,14 @@ Plug 'sheerun/vim-polyglot'
 Plug 'phpactor/phpactor'
 Plug 'pangloss/vim-javascript'
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
+"if has('nvim')
+"  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"else
+"  Plug 'Shougo/deoplete.nvim'
+"  Plug 'roxma/nvim-yarp'
+"  Plug 'roxma/vim-hug-neovim-rpc'
+"endif
+"let g:deoplete#enable_at_startup = 1
 
 
 
