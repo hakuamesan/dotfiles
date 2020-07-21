@@ -247,7 +247,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 " Plug 'lyuts/vim-rtags', { 'for': ['c', 'cpp'] }
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': 'markdown', 'on': 'MarkdownPreview' }
-Plug 'neoclide/coc.nvim', {'release': 'branch'}
+"Plug 'neoclide/coc.nvim', {'release': 'branch'}
 
 "Nginx syntax file
 Plug 'chr4/nginx.vim'
