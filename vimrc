@@ -170,6 +170,7 @@ Plug 'jwalton512/vim-blade'
 Plug 'sheerun/vim-polyglot'
 Plug 'phpactor/phpactor'
 Plug 'pangloss/vim-javascript'
+Plug 'galooshi/vim-import-js'
 
 "if has('nvim')
 "  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -182,15 +183,25 @@ Plug 'pangloss/vim-javascript'
 
 
 
-" function! BuildYCM(info)
-"   if a:info.status == 'installed' || a:info.force
-"     !./install.py --clang-completer --gocode-completer
-"   endif
-" endfunction
-" Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp'], 'do': function('BuildYCM') }
+ function! BuildYCM(info)
+   if a:info.status == 'installed' || a:info.force
+     !./install.py --clang-completer --gocode-completer --ts-completer 
+   endif
+ endfunction
+ Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp'], 'do': function('BuildYCM') }
 
-" Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+" Trigger configuration. You need to change this to something else than <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+
+
 
 " Browsing
 Plug 'Yggdroot/indentLine', { 'on': 'IndentLinesEnable' }
