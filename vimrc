@@ -136,7 +136,7 @@ Plug 'nightsense/stellarized'
 Plug 'arcticicestudio/nord-vim'
 Plug 'nightsense/cosmic_latte'
 Plug 'ayu-theme/ayu-vim'
-
+Plug 'haishanh/night-owl.vim'
 
 
 " Edit
@@ -245,6 +245,7 @@ Plug 'groenewege/vim-less'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 "Plug 'kchmck/vim-coffee-script'
+Plug 'scrooloose/syntastic'
 Plug 'slim-template/vim-slim'
 Plug 'Glench/Vim-Jinja2-Syntax'
 "Plug 'rust-lang/rust.vim'
@@ -272,14 +273,34 @@ call plug#end()
 
 set termguicolors
 let ayucolor="mirage"
-colorscheme ayu
+"colorscheme ayu
+colorscheme night-owl
 
-let g:lightline =  {
-  \ "colorscheme": 'ayu_mirage',
-  \}
+"let g:lightline =  {
+"  \ "colorscheme": 'ayu_mirage',
+"  \}
+
+let g:lightline = { 'colorscheme':'nightowl'}
 
 
 "let g:vue_disable_pre_processors = 1
 let g:vue_pre_processors = 'detect_on_enter'
 syn sync fromstart
+
+
+
+" snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+let g:UltiSnipsEditSplit="vertical"
+
+" syntastic
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_style_error_symbol = '✗'
+let g:syntastic_style_warning_symbol = '⚠'
+let g:syntastic_auto_loc_list=1
+let g:syntastic_aggregate_errors = 1
 
