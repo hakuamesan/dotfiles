@@ -154,7 +154,7 @@ if exists('##TextYankPost')
   let g:highlightedyank_highlight_duration = 100
 endif
 
-
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
