@@ -91,6 +91,28 @@ noremap <F3> :NERDTreeToggle<CR>
 noremap <F4> :TagbarToggle<CR>
 noremap <F12> :%!js-beautify<CR>
 
+let NERDTreeMinimalUI = 1
+" NERDTress File highlighting
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
+call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
+call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
+
+
 colo blue
 
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -153,13 +175,14 @@ if exists('##TextYankPost')
   Plug 'machakann/vim-highlightedyank'
   let g:highlightedyank_highlight_duration = 100
 endif
-
+Plug 'ervandew/supertab'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mattn/emmet-vim'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'posva/vim-vue'
 Plug 'shawncplus/phpcomplete.vim'
@@ -172,6 +195,8 @@ Plug 'phpactor/phpactor'
 Plug 'pangloss/vim-javascript'
 Plug 'galooshi/vim-import-js'
 
+Plug 'ap/vim-css-color'
+
 "if has('nvim')
 "  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "else
@@ -181,6 +206,7 @@ Plug 'galooshi/vim-import-js'
 "endif
 "let g:deoplete#enable_at_startup = 1
 
+vmap <leader>/ <leader>c<space>
 
 
  function! BuildYCM(info)
@@ -217,6 +243,10 @@ augroup nerd_loader
         \|   execute 'autocmd! nerd_loader'
         \| endif
 augroup END
+
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'KabbAmine/vCoolor.vim'
 
 if v:version >= 703
   Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
@@ -336,3 +366,39 @@ let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_auto_loc_list=1
 let g:syntastic_aggregate_errors = 1
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" GitGutter {{{1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:gitgutter_max_signs = 500
+
+" attempt to make gitgutter update faster
+"set updatetime=50
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-javascript {{{1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set cole=0
+" source: https://github.com/pangloss/vim-javascript/issues/101#issuecomment-45543789
+
+" change to 1 to enable concealing
+let g:javascript_conceal = 1
+
+let g:javascript_conceal_function   = 'ƒ'
+let g:javascript_conceal_null       = 'ø'
+let g:javascript_conceal_this       = '@'
+let g:javascript_conceal_return     = '⇚'
+let g:javascript_conceal_undefined  = '¿'
+let g:javascript_conceal_NaN        = 'ℕ'
+let g:javascript_conceal_prototype  = '¶'
+
+" fix conceal color
+highlight Conceal guifg=#ffb964
+
+"highlight link Conceal SpellCap
+"highlight link Conceal comment
+" source: https://github.com/pangloss/vim-javascript/issues/151
+
+" Enables HTML/CSS syntax highlighting in your JavaScript file.
+let g:javascript_enable_domhtmlcss = 1
+" source: https://github.com/pangloss/vim-javascript
