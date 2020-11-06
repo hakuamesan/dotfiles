@@ -60,7 +60,6 @@ endif
 "endfunction
 "let &statusline = s:statusline_expr()
 
-set statusline=%l:%c::%{FugitiveStatusline()}%m\ \[%{&ff}:%{&fenc}:%Y]\ %{getcwd()}\ \ \\\ %V\ %P%<%f
 
 
 
@@ -90,6 +89,8 @@ noremap <F2> :w<CR>
 noremap <F3> :NERDTreeToggle<CR>
 noremap <F4> :TagbarToggle<CR>
 noremap <F12> :%!js-beautify<CR>
+noremap <F9> :../make<CR>
+
 
 let NERDTreeMinimalUI = 1
 " NERDTress File highlighting
@@ -342,7 +343,6 @@ colorscheme night-owl
 "  \ "colorscheme": 'ayu_mirage',
 "  \}
 
-let g:lightline = { 'colorscheme':'nightowl'}
 
 
 "let g:vue_disable_pre_processors = 1
@@ -402,3 +402,13 @@ highlight Conceal guifg=#ffb964
 " Enables HTML/CSS syntax highlighting in your JavaScript file.
 let g:javascript_enable_domhtmlcss = 1
 " source: https://github.com/pangloss/vim-javascript
+
+"set statusline=%l:%c::%{FugitiveStatusline()}%m\ \[%{&ff}:%{&fenc}:%Y]\ \[%{usa_president_2020#status()}\] %{getcwd()}\ \ \\\ %V\ %P%<%f
+set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\[%{usa_president_2020#status()}\]\ %P
+"let g:lightline = { 'colorscheme':'nightowl'}
+let g:lightline = {
+\   'component_function': {
+\     'usa_president_2020': 'usa_president_2020#status',
+\   },
+\ }
+
