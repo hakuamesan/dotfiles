@@ -1,9 +1,10 @@
-" my sample .vimrc config
-
+" my simple .vimrc config
+# Last Update: 20 Nov 2020
+# Author: Hakuame
 
 " basic settings
-set nu
 set nocompatible
+set nu
 set autoindent
 set smartindent
 set lazyredraw
@@ -38,7 +39,31 @@ set completeopt=menuone,preview
 set nocursorline
 set nrformats=hex
 set paste
+set cole=0
+set modelines=2
+set synmaxcol=1000
+if has("gui_running")
+  set lines=50 columns=150
+endif
+" For MacVim
+set noimd
+set imi=1
+set ims=-1
+# end macvim
+set autowrite
+set tags=./tags;/
+
+" Annoying temporary files
+set backupdir=/tmp//,.
+set directory=/tmp//,.
+set undodir=/tmp//,.
+
+
+
+
+
 syntax on
+filetype plugin indent on
 
 
 if has('termguicolors')
@@ -63,26 +88,6 @@ endif
 
 
 
-set modelines=2
-set synmaxcol=1000
-if has("gui_running")
-  set lines=50 columns=150
-endif
-" For MacVim
-set noimd
-set imi=1
-set ims=-1
-
-" ctags
-set tags=./tags;/
-
-" Annoying temporary files
-set backupdir=/tmp//,.
-set directory=/tmp//,.
-if v:version >= 703
-  set undodir=/tmp//,.
-endif
-
 
 "My custom Fn key maps
 noremap <F2> :w<CR>
@@ -92,29 +97,6 @@ noremap <F12> :%!js-beautify<CR>
 noremap <F9> :../make<CR>
 
 
-let NERDTreeMinimalUI = 1
-" NERDTress File highlighting
-function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
- exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
- exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-endfunction
-
-call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
-call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
-call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
-call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
-call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
-let NERDTreeIgnore = ['\.o$']
-
-colo blue
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -167,6 +149,8 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'AndrewRadev/splitjoin.vim'
@@ -177,26 +161,107 @@ if exists('##TextYankPost')
   let g:highlightedyank_highlight_duration = 100
 endif
 Plug 'ervandew/supertab'
-Plug 'jistr/vim-nerdtree-tabs'
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
-Plug 'mattn/emmet-vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'preservim/nerdcommenter'
-Plug 'tpope/vim-surround'
+
+
+# html, Javascript etc
+Plug 'mattn/emmet-vim'
+Plug 'mxw/vim-jsx'
 Plug 'posva/vim-vue'
-Plug 'shawncplus/phpcomplete.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'vim-scripts/Sass'
 Plug 'othree/html5.vim'
 Plug 'jwalton512/vim-blade'
 Plug 'sheerun/vim-polyglot'
-Plug 'phpactor/phpactor'
 Plug 'pangloss/vim-javascript'
 Plug 'galooshi/vim-import-js'
-
 Plug 'ap/vim-css-color'
+
+
+# Autocomplete, snippets etc
+Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp'], 'do': function('BuildYCM') }
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+
+Plug 'Yggdroot/indentLine', { 'on': 'IndentLinesEnable' }
+
+" Nerdtree with vscode like fileicons
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'KabbAmine/vCoolor.vim'
+
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+Plug 'justinmk/vim-gtfo'
+
+" Git
+Plug 'mhinz/vim-signify'
+
+# Go lang
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+
+" Python
+Plug 'python-mode/python-mode', { 'branch': 'develop' }
+
+
+Plug 'groenewege/vim-less'
+Plug 'scrooloose/syntastic'
+Plug 'slim-template/vim-slim'
+Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'honza/dockerfile.vim'
+Plug 'solarnz/thrift.vim'
+Plug 'dag/vim-fish'
+Plug 'chrisbra/unicode.vim', { 'for': 'journal' }
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': 'markdown', 'on': 'MarkdownPreview' }
+
+"Nginx syntax file
+Plug 'chr4/nginx.vim'
+
+" Lint
+Plug 'w0rp/ale'
+
+
+" Other languages
+"Plug 'tpope/vim-rails', { 'for': [] }
+"Plug 'derekwyatt/vim-scala'
+"Plug 'neoclide/coc.nvim', {'release': 'branch'}
+"Plug 'lyuts/vim-rtags', { 'for': ['c', 'cpp'] }
+"Plug 'rust-lang/rust.vim'
+"Plug 'phpactor/phpactor'
+"Plug 'shawncplus/phpcomplete.vim'
+
+call plug#end()
+
+
+let NERDTreeMinimalUI = 1
+" NERDTress File highlighting
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
+call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
+call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
+let NERDTreeIgnore = ['\.o$']
+
 
 "if has('nvim')
 "  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -215,10 +280,6 @@ vmap <leader>/ <leader>c<space>
      !./install.py --clang-completer --gocode-completer --ts-completer 
    endif
  endfunction
- Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp'], 'do': function('BuildYCM') }
-
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 " Trigger configuration. You need to change this to something else than <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -230,11 +291,9 @@ let g:UltiSnipsEditSplit="vertical"
 
 
 
-" Browsing
-Plug 'Yggdroot/indentLine', { 'on': 'IndentLinesEnable' }
+" Browsing - Yggdroot/indentLine
 autocmd! User indentLine doautocmd indentLine Syntax
 
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 augroup nerd_loader
   autocmd!
   autocmd VimEnter * silent! autocmd! FileExplorer
@@ -244,94 +303,6 @@ augroup nerd_loader
         \|   execute 'autocmd! nerd_loader'
         \| endif
 augroup END
-
-Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'KabbAmine/vCoolor.vim'
-
-if v:version >= 703
-  Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-endif
-Plug 'justinmk/vim-gtfo'
-
-" Git
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-if v:version >= 703
-  Plug 'mhinz/vim-signify'
-endif
-
-" Lang
-"if v:version >= 703
-"  Plug 'kovisoft/paredit', { 'for': 'clojure' }
-"  Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-"  Plug 'guns/vim-clojure-static'
-"  Plug 'guns/vim-clojure-highlight'
-"  Plug 'guns/vim-slamhound'
-"  Plug 'venantius/vim-cljfmt'
-"endif
-"Plug 'tpope/vim-bundler', { 'for': 'ruby' }
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-
-filetype plugin indent on
-
-set autowrite
-
-" Go syntax highlighting
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_operators = 1
-
-" Auto formatting and importing
-let g:go_fmt_autosave = 1
-let g:go_fmt_command = "goimports"
-
-" Status line types/signatures
-let g:go_auto_type_info = 1
-
-" Run :GoBuild or :GoTestCompile based on the go file
-function! s:build_go_files()
-  let l:file = expand('%')
-  if l:file =~# '^\f\+_test\.go$'
-    call go#test#Test(0, 1)
-  elseif l:file =~# '^\f\+\.go$'
-    call go#cmd#Build(0)
-  endif
-endfunction
-
-
-
-
-Plug 'groenewege/vim-less'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-"Plug 'kchmck/vim-coffee-script'
-Plug 'scrooloose/syntastic'
-Plug 'slim-template/vim-slim'
-Plug 'Glench/Vim-Jinja2-Syntax'
-"Plug 'rust-lang/rust.vim'
-"Plug 'tpope/vim-rails', { 'for': [] }
-"Plug 'derekwyatt/vim-scala'
-Plug 'honza/dockerfile.vim'
-Plug 'solarnz/thrift.vim'
-Plug 'dag/vim-fish'
-Plug 'chrisbra/unicode.vim', { 'for': 'journal' }
-Plug 'octol/vim-cpp-enhanced-highlight'
-" Plug 'lyuts/vim-rtags', { 'for': ['c', 'cpp'] }
-Plug 'python-mode/python-mode', { 'branch': 'develop' }
-Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': 'markdown', 'on': 'MarkdownPreview' }
-"Plug 'neoclide/coc.nvim', {'release': 'branch'}
-
-"Nginx syntax file
-Plug 'chr4/nginx.vim'
-
-" Lint
-Plug 'w0rp/ale'
-
-call plug#end()
-
 
 
 set termguicolors
@@ -367,23 +338,15 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_aggregate_errors = 1
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GitGutter {{{1
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:gitgutter_max_signs = 500
-
 " attempt to make gitgutter update faster
 "set updatetime=50
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-javascript {{{1
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set cole=0
+" vim-javascript 
 " source: https://github.com/pangloss/vim-javascript/issues/101#issuecomment-45543789
-
 " change to 1 to enable concealing
 let g:javascript_conceal = 1
-
 let g:javascript_conceal_function   = 'ƒ'
 let g:javascript_conceal_null       = 'ø'
 let g:javascript_conceal_this       = '@'
@@ -403,12 +366,41 @@ highlight Conceal guifg=#ffb964
 let g:javascript_enable_domhtmlcss = 1
 " source: https://github.com/pangloss/vim-javascript
 
-"set statusline=%l:%c::%{FugitiveStatusline()}%m\ \[%{&ff}:%{&fenc}:%Y]\ \[%{usa_president_2020#status()}\] %{getcwd()}\ \ \\\ %V\ %P%<%f
-set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\[%{usa_president_2020#status()}\]\ %P
-"let g:lightline = { 'colorscheme':'nightowl'}
-let g:lightline = {
-\   'component_function': {
-\     'usa_president_2020': 'usa_president_2020#status',
-\   },
-\ }
 
+
+" Go syntax highlighting
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
+" Auto formatting and importing
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = "goimports"
+
+" Status line types/signatures
+let g:go_auto_type_info = 1
+
+" Run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+
+
+
+
+"set statusline=%l:%c::%{FugitiveStatusline()}%m\ \[%{&ff}:%{&fenc}:%Y]\ \[%{usa_president_2020#status()}\] %{getcwd()}\ \ \\\ %V\ %P%<%f
+#set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\[%{usa_president_2020#status()}\]\ %P
+"let g:lightline = { 'colorscheme':'nightowl'}
+#let g:lightline = {
+#\   'component_function': {
+#\     'usa_president_2020': 'usa_president_2020#status',
+#\   },
+#\ }
+#
