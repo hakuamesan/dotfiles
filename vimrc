@@ -1,6 +1,6 @@
 " my simple .vimrc config
-# Last Update: 20 Nov 2020
-# Author: Hakuame
+" Last Update: 20 Nov 2020
+" Author: Hakuame
 
 " basic settings
 set nocompatible
@@ -49,7 +49,7 @@ endif
 set noimd
 set imi=1
 set ims=-1
-# end macvim
+" end macvim
 set autowrite
 set tags=./tags;/
 
@@ -156,7 +156,7 @@ Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'AndrewRadev/switch.vim'
 Plug 'sgur/vim-editorconfig'
-if exists('##TextYankPost')
+if exists('"#TextYankPost')
   Plug 'machakann/vim-highlightedyank'
   let g:highlightedyank_highlight_duration = 100
 endif
@@ -168,7 +168,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'preservim/nerdcommenter'
 
 
-# html, Javascript etc
+" html, Javascript etc
 Plug 'mattn/emmet-vim'
 Plug 'mxw/vim-jsx'
 Plug 'posva/vim-vue'
@@ -182,8 +182,17 @@ Plug 'galooshi/vim-import-js'
 Plug 'ap/vim-css-color'
 
 
-# Autocomplete, snippets etc
-Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp'], 'do': function('BuildYCM') }
+" Autocomplete, snippets etc
+Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp'], 'do': function('BuildYCM') }
+" run this after installation
+" cd ~/.vim/bundle/YouCompleteMe
+" python3 install.py --all
+" ./install.py --clangd-completer --go-completer --rust-completer --ts-completer
+" OR
+" ./install.py --all
+" requires xbuild, go, rust, node, npm to be installed
+
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
@@ -203,7 +212,7 @@ Plug 'justinmk/vim-gtfo'
 " Git
 Plug 'mhinz/vim-signify'
 
-# Go lang
+" Go lang
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 " Python
@@ -396,11 +405,11 @@ endfunction
 
 
 "set statusline=%l:%c::%{FugitiveStatusline()}%m\ \[%{&ff}:%{&fenc}:%Y]\ \[%{usa_president_2020#status()}\] %{getcwd()}\ \ \\\ %V\ %P%<%f
-#set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\[%{usa_president_2020#status()}\]\ %P
+"set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\[%{usa_president_2020#status()}\]\ %P
 "let g:lightline = { 'colorscheme':'nightowl'}
-#let g:lightline = {
-#\   'component_function': {
-#\     'usa_president_2020': 'usa_president_2020#status',
-#\   },
-#\ }
-#
+"let g:lightline = {
+"\   'component_function': {
+"\     'usa_president_2020': 'usa_president_2020#status',
+"\   },
+"\ }
+"
