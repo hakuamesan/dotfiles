@@ -1,19 +1,50 @@
 Install Cmd:
 dd bs=4M if=2020-02-13-raspbian-buster.img of=/dev/sdd status=progress conv=fsync
 
-apt-get install nginx-extras
-apt-get install mc 
-apt install ufw 
+apt-get install 
+
+nginx-extras
+mc 
+ufw 
 golang
-brave chromium firefox 
-vim exuberant-ctags vscode 
-gwenview sxiv feh 
-libreoffice libreoffice-styles-elementary libreoffice-styles-colibre 
-youtube-dl virtualbox font-config calibre gimp opera 
-yarn npm pnpm 
-mariadb-client mariadb-server postgresql sqlite3 mongodb-org
-pip python3 vlc mc pwgen fish bind9-dnsutils bzip2 gzip docker
-filezilla tree nmap
+brave-browser
+chromium 
+firefox 
+vim 
+exuberant-ctags
+gwenview 
+sxiv 
+feh 
+libreoffice 
+libreoffice-styles-elementary 
+libreoffice-styles-colibre 
+youtube-dl 
+virtualbox 
+font-config 
+calibre 
+gimp 
+opera 
+yarn 
+npm 
+pnpm 
+mariadb-client 
+mariadb-server 
+postgresql 
+sqlite3 
+mongodb-org
+pip 
+python3 
+vlc 
+mc 
+pwgen 
+fish 
+bind9-dnsutils 
+bzip2 
+gzip 
+docker
+filezilla 
+tree 
+nmap
 
 git checkout https://www.github.com/hakuamesan/dotfiles/ 
 
