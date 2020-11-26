@@ -119,10 +119,6 @@ echo "deb http://repo.mongodb.org/apt/debian buster/mongodb-org/4.2 main" | sudo
 sudo apt-get update
 sudo apt-get install -y mongodb-org
 
-root: egTshsaqky03uYhl
-ananth: 
-
-mongodb+srv://<username>:<password>@cluster0-qwzdc.mongodb.net/test
 
 
 
