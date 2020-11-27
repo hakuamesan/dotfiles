@@ -1,5 +1,8 @@
-# dotfiles
+# Dotfiles
 Various config files
 
-# Last Update: 20 Nov 2020
+Linux.sh - to reinstall a debian-based distro
+Macos.sh - install homebrew and other common apps
+Pi.sh - pi server setup
+
 
