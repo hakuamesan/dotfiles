@@ -413,3 +413,10 @@ endfunction
 "\   },
 "\ }
 "
+let mapleader=","
+map <leader>tn :tabnew<cr>
+map <leader>tc :tabclose<cr>
+map <leader>ws :wa<cr>:mksession!<cr>
+map <leader>ls :source ~/.last_vim_session<cr>
+map <F5> :tabnew<cr>
+
