@@ -38,7 +38,6 @@ set grepformat=%f:%l:%c:%m,%f:%l:%m
 set completeopt=menuone,preview
 set nocursorline
 set nrformats=hex
-set paste
 set cole=0
 set modelines=2
 set synmaxcol=1000
@@ -289,13 +288,15 @@ vmap <leader>/ <leader>c<space>
      !./install.py --clang-completer --gocode-completer --ts-completer 
    endif
  endfunction
+
 " Trigger configuration. You need to change this to something else than <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-s>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsExpandTrigger="<c-t>"
+let g:UltiSnipsJumpForwardTrigger="<c-s>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
 
 
 
@@ -330,12 +331,6 @@ let g:vue_pre_processors = 'detect_on_enter'
 syn sync fromstart
 
 
-
-" snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-let g:UltiSnipsEditSplit="vertical"
 
 " syntastic
 let g:syntastic_always_populate_loc_list=1
