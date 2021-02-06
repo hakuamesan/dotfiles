@@ -159,7 +159,7 @@ if exists('"#TextYankPost')
   Plug 'machakann/vim-highlightedyank'
   let g:highlightedyank_highlight_duration = 100
 endif
-Plug 'ervandew/supertab'
+"Plug 'ervandew/supertab'
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
@@ -240,6 +240,7 @@ Plug 'w0rp/ale'
 "Plug 'tpope/vim-rails', { 'for': [] }
 "Plug 'derekwyatt/vim-scala'
 "Plug 'neoclide/coc.nvim', {'release': 'branch'}
+"Plug 'neoclide/coc-vetur'
 "Plug 'lyuts/vim-rtags', { 'for': ['c', 'cpp'] }
 "Plug 'rust-lang/rust.vim'
 "Plug 'phpactor/phpactor'
