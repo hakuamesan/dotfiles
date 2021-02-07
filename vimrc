@@ -1,6 +1,9 @@
 " my simple .vimrc config
-" Last Update: 20 Nov 2020
+" Last Update: 7 Feb 2021 
 " Author: Hakuame
+"
+
+
 
 " basic settings
 set nocompatible
@@ -127,18 +130,18 @@ Plug 'junegunn/vim-after-object'
 unlet! g:plug_url_format
 
 " Colors
-Plug 'tomasr/molokai'
-Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'morhetz/gruvbox'
-Plug 'yuttie/hydrangea-vim'
+"Plug 'tomasr/molokai'
+"Plug 'chriskempson/vim-tomorrow-theme'
+"Plug 'morhetz/gruvbox'
+"Plug 'yuttie/hydrangea-vim'
 Plug 'tyrannicaltoucan/vim-deep-space'
-Plug 'AlessandroYorba/Despacio'
-Plug 'cocopon/iceberg.vim'
-Plug 'w0ng/vim-hybrid'
-Plug 'nightsense/snow'
-Plug 'nightsense/stellarized'
-Plug 'arcticicestudio/nord-vim'
-Plug 'nightsense/cosmic_latte'
+"Plug 'AlessandroYorba/Despacio'
+"Plug 'cocopon/iceberg.vim'
+"Plug 'w0ng/vim-hybrid'
+"Plug 'nightsense/snow'
+"Plug 'nightsense/stellarized'
+"Plug 'arcticicestudio/nord-vim'
+"Plug 'nightsense/cosmic_latte'
 Plug 'ayu-theme/ayu-vim'
 Plug 'haishanh/night-owl.vim'
 
@@ -163,7 +166,7 @@ endif
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
-Plug 'terryma/vim-multiple-cursors'
+"Plug 'terryma/vim-multiple-cursors'
 Plug 'preservim/nerdcommenter'
 
 
