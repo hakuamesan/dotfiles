@@ -173,6 +173,7 @@ Plug 'preservim/nerdcommenter'
 
 " html, Javascript etc
 Plug 'mattn/emmet-vim'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'mxw/vim-jsx'
 Plug 'posva/vim-vue'
 Plug 'hail2u/vim-css3-syntax'
