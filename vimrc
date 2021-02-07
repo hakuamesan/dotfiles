@@ -113,21 +113,22 @@ call plug#begin()
 "Plug 'junegunn/vim-github-dashboard'
 "Plug 'junegunn/vim-emoji'
 "Plug 'junegunn/vim-pseudocl'
-Plug 'junegunn/vim-slash'
-Plug 'junegunn/vim-fnr'
-Plug 'junegunn/vim-peekaboo'
-Plug 'junegunn/vim-journal'
+"Plug 'junegunn/vim-slash'
+"Plug 'junegunn/vim-fnr'
+"Plug 'junegunn/vim-peekaboo'
+"Plug 'junegunn/vim-journal'
 "Plug 'junegunn/seoul256.vim'
-Plug 'junegunn/gv.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-Plug 'junegunn/vader.vim'
+"Plug 'junegunn/gv.vim'
+"Plug 'junegunn/goyo.vim'
+"Plug 'junegunn/limelight.vim'
+"Plug 'junegunn/vader.vim'
 Plug 'junegunn/fzf', { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'junegunn/heytmux'
-Plug 'junegunn/vim-after-object'
+"Plug 'junegunn/heytmux'
+"Plug 'junegunn/vim-after-object'
 unlet! g:plug_url_format
+
 
 " Colors
 "Plug 'tomasr/molokai'
