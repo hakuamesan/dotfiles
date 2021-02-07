@@ -109,15 +109,15 @@ endif
 
 " My plugins
 call plug#begin()
-Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/vim-github-dashboard'
-Plug 'junegunn/vim-emoji'
-Plug 'junegunn/vim-pseudocl'
+"Plug 'junegunn/vim-easy-align'
+"Plug 'junegunn/vim-github-dashboard'
+"Plug 'junegunn/vim-emoji'
+"Plug 'junegunn/vim-pseudocl'
 Plug 'junegunn/vim-slash'
 Plug 'junegunn/vim-fnr'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-journal'
-Plug 'junegunn/seoul256.vim'
+"Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/gv.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -330,6 +330,12 @@ colorscheme night-owl
 "  \ "colorscheme": 'ayu_mirage',
 "  \}
 
+" Easy-Align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 
 "let g:vue_disable_pre_processors = 1
@@ -420,4 +426,6 @@ map <leader>tc :tabclose<cr>
 map <leader>ws :wa<cr>:mksession!<cr>
 map <leader>ls :source ~/.last_vim_session<cr>
 map <F5> :tabnew<cr>
+
+
 
