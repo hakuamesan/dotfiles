@@ -226,7 +226,6 @@ Plug 'honza/dockerfile.vim'
 Plug 'solarnz/thrift.vim'
 Plug 'dag/vim-fish'
 Plug 'chrisbra/unicode.vim', { 'for': 'journal' }
-Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': 'markdown', 'on': 'MarkdownPreview' }
 
 "Nginx syntax file
@@ -236,15 +235,18 @@ Plug 'chr4/nginx.vim'
 Plug 'w0rp/ale'
 
 
+" VueJS Plugin
+"Plug 'neoclide/coc.nvim', {'release': 'branch'}
+"Plug 'neoclide/coc-vetur'
+
 " Other languages
 "Plug 'tpope/vim-rails', { 'for': [] }
 "Plug 'derekwyatt/vim-scala'
-"Plug 'neoclide/coc.nvim', {'release': 'branch'}
-"Plug 'neoclide/coc-vetur'
 "Plug 'lyuts/vim-rtags', { 'for': ['c', 'cpp'] }
 "Plug 'rust-lang/rust.vim'
 "Plug 'phpactor/phpactor'
 "Plug 'shawncplus/phpcomplete.vim'
+"Plug 'octol/vim-cpp-enhanced-highlight'
 
 call plug#end()
 
