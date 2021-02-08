@@ -25,28 +25,26 @@ set ignorecase smartcase
 set wildmenu
 set wildmode=full
 set tabstop=4
-set shiftwidth=2
+set shiftwidth=4
 set expandtab smarttab
 set scrolloff=5
 set encoding=utf-8
-set list
 set listchars=tab:\|\ ,
 set virtualedit=block
 set nojoinspaces
 set diffopt=filler,vertical
 set autoread
 set clipboard=unnamed
-set foldlevelstart=99
 set grepformat=%f:%l:%c:%m,%f:%l:%m
 set completeopt=menuone,preview
 set nocursorline
 set nrformats=hex
-set cole=0
 set modelines=2
 set synmaxcol=1000
 if has("gui_running")
   set lines=50 columns=150
 endif
+
 " For MacVim
 set noimd
 set imi=1
@@ -95,8 +93,16 @@ endif
 noremap <F2> :w<CR>
 noremap <F3> :NERDTreeToggle<CR>
 noremap <F4> :TagbarToggle<CR>
-noremap <F12> :%!js-beautify<CR>
+noremap <F12> :Prettier<CR>
 noremap <F9> :../make<CR>
+
+let mapleader=","
+map <leader>tn :tabnew<cr>
+map <leader>tc :tabclose<cr>
+map <leader>ws :wa<cr>:mksession!<cr>
+map <leader>ls :source ~/.last_vim_session<cr>
+map <F5> :tabnew<cr>
+map <F6> :tabnext<cr>
 
 
 
@@ -106,43 +112,16 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-
 " My plugins
 call plug#begin()
-"Plug 'junegunn/vim-easy-align'
-"Plug 'junegunn/vim-github-dashboard'
-"Plug 'junegunn/vim-emoji'
-"Plug 'junegunn/vim-pseudocl'
-"Plug 'junegunn/vim-slash'
-"Plug 'junegunn/vim-fnr'
-"Plug 'junegunn/vim-peekaboo'
-"Plug 'junegunn/vim-journal'
-"Plug 'junegunn/seoul256.vim'
-"Plug 'junegunn/gv.vim'
-"Plug 'junegunn/goyo.vim'
-"Plug 'junegunn/limelight.vim'
-"Plug 'junegunn/vader.vim'
 Plug 'junegunn/fzf', { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
-"Plug 'junegunn/heytmux'
-"Plug 'junegunn/vim-after-object'
 unlet! g:plug_url_format
 
 
 " Colors
-"Plug 'tomasr/molokai'
-"Plug 'chriskempson/vim-tomorrow-theme'
-"Plug 'morhetz/gruvbox'
-"Plug 'yuttie/hydrangea-vim'
 Plug 'tyrannicaltoucan/vim-deep-space'
-"Plug 'AlessandroYorba/Despacio'
-"Plug 'cocopon/iceberg.vim'
-"Plug 'w0ng/vim-hybrid'
-"Plug 'nightsense/snow'
-"Plug 'nightsense/stellarized'
-"Plug 'arcticicestudio/nord-vim'
-"Plug 'nightsense/cosmic_latte'
 Plug 'ayu-theme/ayu-vim'
 Plug 'haishanh/night-owl.vim'
 
@@ -164,7 +143,6 @@ if exists('"#TextYankPost')
   let g:highlightedyank_highlight_duration = 100
 endif
 "Plug 'ervandew/supertab'
-Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
 "Plug 'terryma/vim-multiple-cursors'
@@ -214,7 +192,8 @@ Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'justinmk/vim-gtfo'
 
 " Git
-Plug 'mhinz/vim-signify'
+Plug 'airblade/vim-gitgutter'
+""Plug 'mhinz/vim-signify'
 
 " Go lang
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
@@ -422,13 +401,6 @@ endfunction
 "\   },
 "\ }
 "
-let mapleader=","
-map <leader>tn :tabnew<cr>
-map <leader>tc :tabclose<cr>
-map <leader>ws :wa<cr>:mksession!<cr>
-map <leader>ls :source ~/.last_vim_session<cr>
-map <F5> :tabnew<cr>
-
 
 inoremap " ""<left>
 inoremap ' ''<left>
