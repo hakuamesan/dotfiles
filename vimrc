@@ -430,4 +430,12 @@ map <leader>ls :source ~/.last_vim_session<cr>
 map <F5> :tabnew<cr>
 
 
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {<CR>}<left>
+inoremap {<CR> {<CR>}<up><CR>iO
+inoremap {;<CR> {<CR>};<ESC>O
+
 
