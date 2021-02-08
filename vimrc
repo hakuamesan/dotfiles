@@ -1,9 +1,6 @@
 " my simple .vimrc config
 " Last Update: 7 Feb 2021 
 " Author: Hakuame
-"
-
-
 
 " basic settings
 set nocompatible
