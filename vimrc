@@ -407,4 +407,6 @@ inoremap { {<CR>}<left>
 inoremap {<CR> {<CR>}<up><CR>iO
 inoremap {;<CR> {<CR>};<ESC>O
 
-
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
