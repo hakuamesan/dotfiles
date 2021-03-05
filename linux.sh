@@ -68,8 +68,7 @@ Privacy Badger
 
 
 Vim-plug manager
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-"     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 
 vim
 :PlugInstall
@@ -81,7 +80,7 @@ if not functions -q fisher
     curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
     fish -c fisher
 end
-fisher jethrokuan/z fishpkg/fish-prompt-metro jethrokuan/fzf
+fisher install jethrokuan/z fishpkg/fish-prompt-metro jethrokuan/fzf
 
 
 
