@@ -121,6 +121,8 @@ unlet! g:plug_url_format
 Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'ayu-theme/ayu-vim'
 Plug 'haishanh/night-owl.vim'
+""Plug 'joshdick/onedark.vim'
+
 
 
 " Edit
@@ -410,3 +412,4 @@ inoremap {;<CR> {<CR>};<ESC>O
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
