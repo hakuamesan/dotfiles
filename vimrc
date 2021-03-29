@@ -1,5 +1,5 @@
 " my simple .vimrc config
-" Last Update: 7 Feb 2021 
+" Last Update: 29 Mar 2021
 " Author: Hakuame
 
 " basic settings
@@ -301,7 +301,6 @@ augroup nerd_loader
 augroup END
 
 
-set termguicolors
 let ayucolor="mirage"
 "colorscheme ayu
 colorscheme night-owl
@@ -313,10 +312,6 @@ colorscheme night-owl
 " Easy-Align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
 
 "let g:vue_disable_pre_processors = 1
 let g:vue_pre_processors = 'detect_on_enter'
